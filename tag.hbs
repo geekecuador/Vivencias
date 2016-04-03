@@ -1,0 +1,54 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+{{! render content with sidebar }}
+<div class="row tn-main-content tn-container">
+    {{! main content }}
+    <div class="main-content-wrap col-md-8 col-sm-12" role="main">
+        <div class="tag-page-header">
+            <div class="tag-page-title"><h2>{{tag.name}}</h2></div>
+            {{#if tag.description}}
+                <p class="tag-page-desc">{{tag.description}}</p>
+            {{/if}}
+        </div>
+        <div class="block-wrap">
+            {{#foreach posts}}
+                <div class="module-latest" itemscope="itemscope" itemtype="http://schema.org/Article">
+                    <div class="is-half-col col-sm-4 col-xs-12">
+                        <div class="thumb-wrap">
+                            {{#if image}}
+                                <a href="{{url}}" title="{{{title}}}">
+                                    <div class="thumb-image" style="background-image: url({{image}});"></div>
+                                </a>
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="is-half-col col-sm-8 col-xs-12">
+                        <h3 class="post-title" itemprop="name"><a itemprop="url" href="{{url}}" title="{{{title}}}">{{{title}}}</a></h3>
+                        <div class="meta-bar-wrap">
+                            <span class="meta-el tag-meta">{{tags separator=''}}</span>
+                            <span class="meta-el date-meta">{{date format="MMM DD, YYYY"}}</span>
+                            {{#author}}
+                                <span class="meta-el author-meta"> <a href="{{url}}">{{name}}</a></span>
+                            {{/author}}
+                        </div>
+                        <div class="entry">
+                            {{excerpt words ="20"}}
+                        </div>
+                    </div>
+                </div>
+            {{/foreach}}
+            {{! render pavigation }}
+            <div class="pagination-wrap">
+                {{pagination}}
+            </div>
+        </div>
+    </div>
+    <!--#main content -->
+
+    {{! main sidebar }}
+    <div id="sidebar" class="sidebar-wrap col-md-4 col-sm-12" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+        {{> sidebar }}
+    </div>
+</div>
+

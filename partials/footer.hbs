@@ -1,0 +1,35 @@
+{{! render site footer }}
+<footer id="tn-footer">
+    <div class="tn-container row footer-inner">
+        <div class="col-sm-4 col-xs-12 is-half-col">
+            {{! about site widget }}
+            {{> widget-about }}
+        </div>
+        <div class="col-sm-4 col-xs-12 is-half-col">
+            {{! lastest post widget }}
+            {{> widget-latest }}
+        </div>
+        <div class="col-sm-4 col-xs-12 is-half-col">
+            {{! instagram widget }}
+            {{> widget-instagram }}
+        </div>
+    </div>
+    {{! copyright area }}
+    <div class="copyright-wrap">
+        <div class="tn-container copyright-inner">
+            <p class="copyright">Copyright 2015 THEMERUBY.COM Powered by <a href="https://ghost.org/">Ghost</a></p>
+            <div class="footer-navigation-wrap">
+                {{ navigation }}
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+{{! Load theme config }}
+{{> tn-config}}
+
+<script src="{{asset "js/tn-extend-script.min.js"}}"></script>
+<script src="{{asset "js/jquery.fitvids.js"}}"></script>
+<script src="{{asset "js/tn-script.js"}}"></script>

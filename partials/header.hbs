@@ -1,0 +1,42 @@
+{{! render site header }}
+<header>
+    {{! render main header }}
+    <div id="main-header">
+        <div class="tn-container header-inner">
+            {{! render site logo }}
+            <div class="site-logo" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">
+                <meta itemprop="name" content="{{@blog.logo}}">
+                {{#if @blog.logo}}
+                    <a class="logo-image" itemprop="url" href="{{@blog.url}}">
+                        <img src="{{@blog.logo}}" alt="{{@blog.title}}">
+                    </a>
+                {{else}}
+                    <a class="logo-text" href="{{@blog.url}}">{{@blog.title}}</a>
+                {{/if}}
+            </div>
+
+            {{! render header ads }}
+            <div class="header-ads-wrap">
+                {{> header-ads }}
+            </div>
+        </div>
+    </div>
+
+    {{! render navigation }}
+    <div id="navigation" class="navigation-wrap container-fluid">
+        <div class="navigation-inner clearfix">
+            {{! mobile button }}
+            <div class="mobile-menu-nav">
+                <a href="#" id="mobile-button-nav-open" class="mobile-nav-button"><i class="menu-button fa fa-th"></i></a>
+            </div>
+
+            {{! render navigation }}
+            {{navigation}}
+
+            {{! render right top bar }}
+            <div class="right-top-bar social-bar">
+                {{> social-link}}
+            </div>
+        </div>
+    </div>
+</header>

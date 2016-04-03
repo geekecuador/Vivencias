@@ -1,0 +1,72 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+{{! render featured block }}
+<div class="container-fluid">
+    <div id="featured-block" class="featured-block-wrap row"></div>
+</div><!--#featured block -->
+
+{{! render content with sidebar }}
+<div class="row tn-main-content tn-container">
+
+    {{! main content }}
+    <div class="main-content-wrap col-md-8 col-sm-12" role="main">
+
+        {{! render block 1 }}
+        <div class="tn-block-1-wrap block-wrap"></div>
+
+        {{! render block 2 }}
+        <div class="tn-block-2-wrap block-wrap"></div>
+
+        {{! render block 3 }}
+        <div class="tn-block-3-wrap block-wrap"></div>
+
+        {{! render block 4 }}
+        <div class="tn-block-4-wrap block-wrap"></div>
+
+        {{! render latest blck with navigation }}
+        <div class="tn-latest-block-wrap block-wrap">
+            <div class="block-title-wrap"><h3 class="block-title">latest posts</h3></div>
+            <div class="block-content-wrap">
+                {{#foreach posts}}
+                    <div class="module-latest" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div class="is-half-col col-sm-4 col-xs-12">
+                            <div class="thumb-wrap">
+                                {{#if image}}
+                                    <a href="{{url}}" title="{{{title}}}">
+                                        <div class="thumb-image" style="background-image: url({{image}});"></div>
+                                    </a>
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="is-half-col col-sm-8 col-xs-12">
+                            <h3 class="post-title" itemprop="name"><a itemprop="url" href="{{url}}" title="{{{title}}}">{{{title}}}</a></h3>
+                            <div class="meta-bar-wrap">
+                                <span class="meta-el tag-meta">{{tags separator=''}}</span>
+                                <span class="meta-el date-meta">{{date format="MMM DD, YYYY"}}</span>
+                                {{#author}}
+                                    <span class="meta-el author-meta"> <a href="{{url}}">{{name}}</a></span>
+                                {{/author}}
+
+                            </div>
+                            <div class="entry">
+                                {{excerpt words ="20"}}
+                            </div>
+                        </div>
+                    </div>
+                {{/foreach}}
+            </div>
+            {{! render pavigation }}
+            <div class="pagination-wrap">
+                {{pagination}}
+            </div>
+        </div>
+
+    </div>
+    <!--#main content -->
+
+    {{! main sidebar }}
+    <div id="sidebar" class="sidebar-wrap col-md-4 col-sm-12" role="complementary" itemscope="itemscope" itemtype="http://schema.org/WPSideBar">
+        {{> sidebar }}
+    </div>
+</div>
