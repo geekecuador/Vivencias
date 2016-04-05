@@ -1,5 +1,19 @@
 {{! render site header }}
 <header>
+    {{! render top bar }}
+    <div class="top-bar-wrap clearfix">
+        <div class="top-bar-inner tn-container">
+            {{! render left top bar }}
+            <ul class="left-top-bar">
+                {{> contact-info }}
+            </ul>
+            {{! render right top bar }}
+            <div class="right-top-bar social-bar">
+                {{> social-link}}
+            </div>
+        </div>
+    </div>
+
     {{! render main header }}
     <div id="main-header">
         <div class="tn-container header-inner">
@@ -23,7 +37,7 @@
     </div>
 
     {{! render navigation }}
-    <div id="navigation" class="navigation-wrap container-fluid">
+    <div id="navigation" class="navigation-wrap tn-container">
         <div class="navigation-inner clearfix">
             {{! mobile button }}
             <div class="mobile-menu-nav">
@@ -33,10 +47,21 @@
             {{! render navigation }}
             {{navigation}}
 
-            {{! render right top bar }}
-            <div class="right-top-bar social-bar">
-                {{> social-link}}
+            {{! render header search }}
+            <div class="search-wrap">
+                <a href="#" id="search-icon" class="search-icon"><i class="fa fa-search"></i></a>
+                <form id="search-form" class="search-form-wrap ajax-form">
+                <input id="search-form-text" type="text" autocomplete="off" class="field" name="s" value="" placeholder="Search this Site..">
+                <div id="ajax-search-result"></div>
+                </form>
             </div>
+        </div>
+    </div>
+
+    {{! render ticker bar }}
+    <div class="ticker-wrap tn-container">
+        <div class="ticker-inner">
+            <ul id="tn-ticker-bar" class="js-hidden module-sticker-inner"></ul>
         </div>
     </div>
 </header>
